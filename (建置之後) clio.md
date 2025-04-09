@@ -1,4 +1,41 @@
 # 如果你是在建置完成之後點到這了，那你來對了
 ---
 ### 網址：https://xrpl.org/docs/infrastructure/installation/install-clio-on-ubuntu
+### clio 是用來處理 api 相關的功能  
 ---
+### 先檢查一下有沒有需要更新的
+```bash
+sudo apt -y update
+```
+###　安裝　clio
+```bash
+sudo apt -y install clio
+```
+### 裝完之後要先創建資料夾，文件裡沒有提到
+```bash
+cd /opt/clio
+sudo mkdir etc
+cd /etc
+sudo nano config.json
+```
+### 設定 clio server 的 config，這樣是最基本的連接
+### 設定 server 的 example 網址：https://github.com/XRPLF/clio/blob/develop/docs/examples/config/example-config.json
+```json
+"etl_sources":
+[
+    {
+        "ip":"127.0.0.1",
+        "ws_port":"6005",
+        "grpc_port":"50051"
+    }
+]
+```
+### 接著要設定 ripple 的 server 能夠讓 clio 的 server 連線
+### ripple 的設定檔在 *.cfg 預設名稱是 ripple.cfg
+### 設定不需要密碼，且非管理員身分的 websocket 連接
+```json
+[port_ws_public]
+port = 6005
+ip = 0.0.0.0
+protocol = ws
+```
