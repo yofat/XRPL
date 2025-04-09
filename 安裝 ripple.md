@@ -1,5 +1,6 @@
 # 安裝 ripple
 ### 沒記錯是因為 XRP 將程式設計外包給 ripple
+### 理論上可以無腦複製貼上不會出錯
 ### 網址：https://xrpl.org/docs/infrastructure/installation/install-rippled-on-ubuntu
 ------------------------------------------------------
 ## 假定：一台空機，剛安裝到虛擬機上面
