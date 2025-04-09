@@ -33,7 +33,7 @@ sudo nano config.json
 ### 接著要設定 ripple 的 server 能夠讓 clio 的 server 連線
 ### ripple 的設定檔在 *.cfg 預設名稱是 ripple.cfg
 ### 設定不需要密碼，且非管理員身分的 websocket 連接
-```json
+```txt
 [port_ws_public]
 port = 6005
 ip = 0.0.0.0
