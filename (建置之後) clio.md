@@ -33,9 +33,27 @@ sudo nano config.json
 ### 接著要設定 ripple 的 server 能夠讓 clio 的 server 連線
 ### ripple 的設定檔在 *.cfg 預設名稱是 ripple.cfg
 ### 設定不需要密碼，且非管理員身分的 websocket 連接
+#### 要注意防火牆可能會檔
 ```txt
 [port_ws_public]
 port = 6005
 ip = 0.0.0.0
 protocol = ws
+```
+###　開一個能夠承載 gRPC 的回應以及指定 clio server 的 ip 在 secure_gateway 進入
+###  如果 clio 在不同台主機要改 ip
+```txt
+[port_grpc]
+port = 50051
+ip = 0.0.0.0
+secure_gateway = 127.0.0.1
+```
+### 啟用 clio server
+```bash
+sudo systemctl enable clio
+```
+### 將 clio 和 ripple server 運行
+```bash
+sudo systemctl start rippled
+sudo systemctl start clio
 ```
