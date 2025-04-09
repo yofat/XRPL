@@ -54,7 +54,7 @@ ulimit -c unlimited
 sudo systemctl edit rippled
 ```
 #### 要設定的字
-```json
+```txt
 [Service]
 LimitCORE=infinity
 ```
