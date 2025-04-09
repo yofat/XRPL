@@ -1,0 +1,16 @@
+You have to go to /etc/opt/ripple/rippled.cfg
+And unhashtag:
+----------------------------------
+[port_ws_public]
+port = 6005
+ip = 0.0.0.0
+protocol = ws
+----------------------------------
+And than change it:
+----------------------------------
+[port_grpc]
+port = 50051
+ip = 0.0.0.0
+secure_gateway = 127.0.0.1
+----------------------------------
+than go to 08

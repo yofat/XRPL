@@ -1,0 +1,20 @@
+
+First is:
+----------------------------------------
+sudo -u postgres psql
+----------------------------------------
+and than
+----------------------------------------
+CREATE ROLE newuser WITH LOGIN PASSWORD 'password';
+ALTER ROLE newuser CREATEDB;
+\q
+----------------------------------------
+and than you have to find 
+/etc/postgresql/version/main/pg_ident.conf
+change the local .. .. .. peer to local .. .. .. schm256sha <- like below. You'll know when you open it.
+----------------------------------------
+sudo psql postgres -U newuser
+password is password
+create database reporting;
+\du <- you can see you user in sql
+\q <- quit

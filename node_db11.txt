@@ -1,0 +1,48 @@
+First is
+---------------------------------------------------
+mkdir -p $HOME/.config/ripple
+cp ~/rippled/cfg/rippled-example.cfg $HOME/.config/ripple/rippled-reporting-mode.cfg
+cd ~/.config/ripple
+sudo nano rippled-reporting-mode.cfg
+---------------------------------------------------
+than add this
+---------------------------------------------------
+[reporting]
+etl_source
+read_only=0
+---------------------------------------------------
+If there has one, just change it
+---------------------------------------------------
+[etl_source]
+source_grpc_port=50051
+source_ws_port=6006
+source_ip=127.0.0.1
+---------------------------------------------------
+add this
+---------------------------------------------------
+[ledger_tx_tables]
+conninfo = postgres://newuser:password@127.0.0.1/reporting
+use_tx_tables=1
+---------------------------------------------------
+They must to be the same
+---------------------------------------------------
+online_delete=1000000
+
+[ledger_history]
+1000000
+---------------------------------------------------
+[port_ws_admin_local]
+port = 6006
+ip = 127.0.0.1
+admin = 127.0.0.1
+protocol = ws
+---------------------------------------------------
+[port_grpc]
+port = 60051
+ip = 0.0.0.0
+---------------------------------------------------
+
+cd ~/rippled/.build
+sudo ./ripple --conf ~/.config/ripple/rippled-reporting-mode.cfg
+
+reporting mode finished
