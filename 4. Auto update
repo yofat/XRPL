@@ -1,0 +1,14 @@
+# 自動更新
+### 要先確定是否有這個檔案
+### 由於他是檔案，所以可以直接 cd 過去，如果他說他不是目錄，那他就存在
+```txt
+/opt/ripple/etc/update-rippled-cron
+```
+### 接著要讓這個檔案連結到執行定期任務的地方(他好像沒有中文名字)
+```bash
+sudo ln -s /opt/ripple/etc/update-rippled-cron /etc/cron.d/
+```
+### 接著重新啟動 ripple server 以讓它套用設定
+``` bash
+sudo systemctl restart rippled.service
+```
